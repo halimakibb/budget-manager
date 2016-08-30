@@ -77,8 +77,21 @@ TEMPLATES = [
 WSGI_APPLICATION = 'TaskScheduler.wsgi.application'
 
 
-# Database for production
+# Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'task_scheduler',
+        'USER': 'postgres',
+        'PASSWORD': 'hardrock',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
+    }
+}
+
+# Database for Production
 
 DATABASES = {
     'default': {
@@ -91,18 +104,6 @@ DATABASES = {
     }
 }
 
-#Database for development
-
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.postgresql',
-#        'NAME': 'task_scheduler',
-#        'USER': 'postgres',
-#        'PASSWORD': 'hardrock',
-#        'HOST': '127.0.0.1',
-#        'PORT': '5432',
-#    }
-#}
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
@@ -140,16 +141,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
-# for production
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__)) 
-
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
+STATIC_ROOT = posixpath.join(*(BASE_DIR.split(os.path.sep) + ['static']))
 
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 # Date Format
-
-STATICFILES_DIRS = (
-    os.path.join(PROJECT_ROOT, 'static'),
-)
 

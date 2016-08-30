@@ -4,8 +4,8 @@ PipError
 UpdatingDefaultsHelpFormatter
 InstallationError
 operations
-models
 __main__
+models
 baseparser
 wheel
 exceptions
