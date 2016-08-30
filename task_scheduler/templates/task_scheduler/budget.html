@@ -1,0 +1,371 @@
+﻿
+{% extends "task_scheduler/layout/top-nav.html" %}
+{% load staticfiles %}
+{% block title %}
+	Budget
+{% endblock %}
+
+{% block header %}
+
+{% endblock %}
+
+{% block footer %}
+
+{% load humanize %}
+<script src="{% static 'task_scheduler/dist/js/jquery.monthpicker.js' %}"></script>
+<script type="text/javascript">
+	
+	$('#selectpicker').select2();
+	
+	$(function () {
+
+	$('#selectpicker').change(function()
+	{	
+		var option = $(this).find('option:selected').val();
+		$('#search_button').css('display', 'block');
+		debugger;
+		if (option == "datepicker" || option == "weekpicker"){
+			$("#datepicker").css('display', 'inline');
+			$("#datepicker").datepicker("enable");
+			$("#datepicker").css('backgroundColor', 'lightyellow');
+			$("#datepicker").datepicker({
+				showOn: "button",
+				buttonImage: "{% static 'task_scheduler/dist/img/calendar.gif' %}",
+				buttonImageOnly: true,
+				buttonText: "Select date",
+				dateFormat: 'yy-mm-dd'
+			});		
+			
+			if ($('#datepicker').hasClass('month-year-input')){	
+				$("#datepicker").MonthPicker("destroy");
+		}
+			
+			$('#yearpicker').select2();
+			$('#yearpicker').select2('destroy');
+			$('#yearpicker').css('display', 'none');
+		
+	}
+		else if (option == "monthpicker"){
+			$('#search_button').css('display', 'block');
+			$("#datepicker").css('display', 'inline');
+
+			if ($('#datepicker').hasClass('hasDatepicker')){	
+				$("#datepicker").datepicker("destroy");
+		}
+	
+			$('#datepicker').MonthPicker({ Disabled: false });
+			$('#datepicker').MonthPicker({ StartYear: 2016, ShowIcon: true, Button:  "<img src='{% static "task_scheduler/dist/img/calendar.gif" %}' />" });
+			$('input[type=month]').MonthPicker().css('backgroundColor', 'lightyellow');
+
+			$('#yearpicker').select2();
+			$('#yearpicker').select2('destroy');
+			$('#yearpicker').css('display', 'none');
+		
+	}
+		else if (option == "yearpicker") {
+			$('#yearpicker').select2();
+			$('#datepicker').css('display', 'none');
+
+			if ($('#datepicker').hasClass('hasDatepicker')){	
+				$("#datepicker").datepicker("destroy");
+		}
+			else if ($('#datepicker').hasClass('month-year-input')){	
+				$("#datepicker").MonthPicker("destroy");
+		}
+			
+			$('#yearpicker').css('display', 'inline');
+	}	
+		
+		else {
+		
+		$('#yearpicker').select2();
+		$('#yearpicker').select2('destroy');
+		$('#yearpicker').css('display', 'none');
+
+		if ($('#datepicker').hasClass('hasDatepicker')){	
+				$("#datepicker").datepicker("destroy");
+		}
+
+		else if ($('#datepicker').hasClass('month-year-input')){	
+				$("#datepicker").MonthPicker("destroy");
+		}
+		
+		if (option != 'all'){
+			$('#search_button').css('display', 'none');
+		}
+		else{
+			$('#search_button').css('display', 'block');
+		}
+		$('#datepicker').css('display', 'none');
+	}
+	
+	});
+	});
+	
+	$('#page_number_select').change(function (e){
+		
+		var goto = this.value;
+		redirect(goto);
+	});
+
+	function redirect(goto){
+        window.location = goto;
+    }
+</script>
+{% endblock %}
+
+{% block content_title %}
+	Budget
+{% endblock %}
+
+{% block content %}
+
+	<div class="row">
+        <div class="col-xs-12">
+          <div class="box" style="padding:25px">
+			<form method="POST" action="/scheduler/budget" class="post-form">{% csrf_token %}
+				<div class="box-header" style="height:60px">
+              
+				  <select id="selectpicker" name="selectpicker" style="width:180px">
+					  <option value="none">Select Time Period</option>
+					  <option value="all">All</option>
+					  <option value="datepicker">Daily Spending</option>
+					  <option value="weekpicker">Weekly Spending</option>
+					  <option value="monthpicker">Monthly Spending</option>
+					  <option value="yearpicker">Yearly Spending</option>
+					  <option value="custom">Custom Time Period</option>
+
+				  </select>
+				  <div class="box-tools">
+					<div class="input-group input-group-sm">
+					  <input id="datepicker" name="datepicker" class='Default' type="text" style="display: none" />
+					  <input id="datepicker-end" class="Default" type="text" style="display: none" />
+					  <select id="yearpicker" name="yearpicker" style="width:100px; display: none">
+						  {% for y in num %}
+							  <option value="{{ y }}">{{ y }}</option>
+						  {% endfor %}
+					  </select>
+						<div style="margin-top:10px">
+							<button type="submit" id="search_button" class="save btn btn-primary" style="display:none">Search</button>
+						</div>
+					</div>
+				  </div>
+				
+				</div>
+			</form>
+            <!-- /.box-header -->
+			
+            <div class="box-body table-responsive no-padding" style="margin-top:20px">
+              <table class="table table-hover">
+				{% if mode == "all" or mode == "datepicker" or mode == "weekpicker" %}
+                <tr>
+                  <th>Name</th>
+                  <th>Date</th>
+				  <th>Type</th>
+                  <th>Amount</th>
+				  <th>Credit/Debit</th>
+				  <th>Edit</th>
+				  <th>Delete</th>
+                  
+                </tr>
+				  {% for budget in budgets %}
+                <tr>
+				  {% if budget.type.debit_or_credit.type == 'Debit' %}
+					  <td>{{ budget.name }}</td>
+					  <td>{{ budget.date }}</td>
+					  <td>{{ budget.type }}</td>
+					  <td>Rp. {{ budget.amount|intcomma }}</td>
+					  <td>{{ budget.type.debit_or_credit}}</td>
+					  <td><a href="/scheduler/editbudget/{{ budget.id }}/{{ budgets.number }}"><span class="fa fa-pencil"></span></a></td>
+					  <td><a href="/scheduler/deletebudget/{{ budget.id }}/{{ budgets.number }}"><span class="fa fa-trash"></span></a></td>
+				  {% else %}
+					  <td style="background-color:lightgreen">{{ budget.name }}</td>
+					  <td style="background-color:lightgreen">{{ budget.date }}</td>
+					  <td style="background-color:lightgreen">{{ budget.type }}</td>
+					  <td style="background-color:lightgreen">Rp. {{ budget.amount|intcomma }}</td>
+					  <td style="background-color:lightgreen">{{ budget.type.debit_or_credit}}</td>
+					  <td style="background-color:lightgreen"><a href="/scheduler/editbudget/{{ budget.id }}/{{ budgets.number }}"><span class="fa fa-pencil"></span></a></td>
+					  <td style="background-color:lightgreen"><a href="/scheduler/deletebudget/{{ budget.id }}/{{ budgets.number }}"><span class="fa fa-trash"></span></a></td>
+                </tr>
+				  {% endif %}
+				  {% endfor %}
+		       {% elif mode == "monthpicker" %}
+				<tr>
+                  <th>Week</th>
+                  <th>Credit</th>
+				  <th>Debit</th>
+                </tr>
+				  
+				<tr>
+				  <td>Week 1</td>
+				  <td>Rp. {{ week_spendings.0|intcomma }}</td>
+				  <td>Rp. {{ week_incomes.0|intcomma }}</td>
+				</tr>
+				
+				<tr>
+				  <td>Week 2</td>
+				  <td>Rp. {{ week_spendings.1|intcomma }}</td>
+				  <td>Rp. {{ week_incomes.1|intcomma }}</td>
+				</tr> 
+				
+				<tr>
+				  <td>Week 3</td>
+				  <td>Rp. {{ week_spendings.2|intcomma }}</td>
+				  <td>Rp. {{ week_incomes.2|intcomma }}</td>
+				</tr>
+
+				<tr>
+				  <td>Week 4</td>
+				  <td>Rp. {{ week_spendings.3|intcomma }}</td>
+				  <td>Rp. {{ week_incomes.3|intcomma }}</td>
+				</tr>
+
+				<tr>
+				  <td>Week 5</td>
+				  <td>Rp. {{ week_spendings.4|intcomma }}</td>
+				  <td>Rp. {{ week_incomes.4|intcomma }}</td>
+				</tr>
+				{% elif mode == "yearpicker" %}
+				  <tr>
+                  <th>Month</th>
+                  <th>Credit</th>
+				  <th>Debit</th>
+                </tr>
+				  
+				<tr>
+				  <td>January</td>
+				  <td>Rp. {{ month_spendings.0|intcomma }}</td>
+				  <td>Rp. {{ month_incomes.0|intcomma }}</td>
+				</tr>
+				
+				<tr>
+				  <td>February</td>
+				  <td>Rp. {{ month_spendings.1|intcomma }}</td>
+				  <td>Rp. {{ month_incomes.1|intcomma }}</td>
+				</tr>
+				
+				<tr>
+				  <td>March</td>
+				  <td>Rp. {{ month_spendings.2|intcomma }}</td>
+				  <td>Rp. {{ month_incomes.2|intcomma }}</td>
+				</tr>
+
+				<tr>
+				  <td>April</td>
+				  <td>Rp. {{ month_spendings.3|intcomma }}</td>
+				  <td>Rp. {{ month_incomes.3|intcomma }}</td>
+				</tr>
+
+				<tr>
+				  <td>May</td>
+				  <td>Rp. {{ month_spendings.4|intcomma }}</td>
+				  <td>Rp. {{ month_incomes.4|intcomma }}</td>
+				</tr>
+
+				<tr>
+				  <td>June</td>
+				  <td>Rp. {{ month_spendings.5|intcomma }}</td>
+				  <td>Rp. {{ month_incomes.5|intcomma }}</td>
+				</tr>
+				
+				<tr>
+				  <td>July</td>
+				  <td>Rp. {{ month_spendings.6|intcomma }}</td>
+				  <td>Rp. {{ month_incomes.6|intcomma }}</td>
+				</tr>
+				
+				<tr>
+				  <td>August</td>
+				  <td>Rp. {{ month_spendings.7|intcomma }}</td>
+				  <td>Rp. {{ month_incomes.7|intcomma }}</td>
+				</tr>
+
+				<tr>
+				  <td>September</td>
+				  <td>Rp. {{ month_spendings.8|intcomma }}</td>
+				  <td>Rp. {{ month_incomes.8|intcomma }}</td>
+				</tr>
+
+				<tr>
+				  <td>October</td>
+				  <td>Rp. {{ month_spendings.9|intcomma }}</td>
+				  <td>Rp. {{ month_incomes.9|intcomma }}</td>
+				</tr>
+
+				 <tr>
+				  <td>November</td>
+				  <td>Rp. {{ month_spendings.10|intcomma }}</td>
+				  <td>Rp. {{ month_incomes.10|intcomma }}</td>
+				</tr>
+
+				<tr>
+				  <td>December</td>
+				  <td>Rp. {{ month_spendings.11|intcomma }}</td>
+				  <td>Rp. {{ month_incomes.11|intcomma }}</td>
+				</tr>
+
+				{% endif %}
+              </table>
+				<div class="pagination">
+					<span class="step-links">
+						{% if budgets.has_previous %}
+							<a href="?page={{ budgets.paginator.1 }}"><span class="fa fa-2x fa-angle-double-left" style="padding-left:5px"></span></a>
+							<a href="?page={{ budgets.previous_page_number }}"><span class="fa fa-2x fa-angle-left" style="padding-left:5px; padding-right:5px"></span></a>
+						{% endif %}
+
+						<span class="current">
+							<select id="page_number_select">
+								{% for number in number_of_pages %}
+									{% if number|add:1 == budgets.number %}
+										<option selected="selected" value="/scheduler/budget?page={{ number|add:1 }}">{{ number|add:1 }}</option>
+									{% else %}
+										<option value="/scheduler/budget?page={{ number|add:1 }}">{{ number|add:1 }}</option>
+									{% endif %}
+								{% endfor %}
+							</select>
+							
+							 of {{ budgets.paginator.num_pages }}
+						</span>
+
+						{% if budgets.has_next %}
+							<a href="?page={{ budgets.next_page_number }}"><span class="fa fa-2x fa-angle-right" style="padding-right:5px;padding-left:5px"></span></a>
+							
+							<a href="?page={{ budgets.paginator.num_pages }}"><span class="fa fa-2x fa-angle-double-right" style="padding-right:5px"></span></a>
+						{% endif %}
+					</span>
+				</div>
+			  
+				<br />
+				<br />
+				<div class="row">
+					<div class="col-md-7">
+						<a class="btn btn-primary" href="{% url 'newspending' %}">Insert New Spending Data</a>
+					</div>
+					<div class="col-md-2">
+						<h4 style="text-align: right"> Total Spending </h4>
+					</div>
+					<div class="col-md-2">
+						<h4 style="text-align: right">Rp. {{ total|intcomma }} </h4>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-7">
+
+					</div>
+					<div class="col-md-2">
+						<h4 style="text-align: right"> Total Income </h4>
+					</div>
+					<div class="col-md-2">
+						<h4 style="text-align: right">Rp. {{ income|intcomma }} </h4>
+					</div>
+				</div>
+          <!-- /.box -->
+        </div>
+            </div>
+			  
+            <!-- /.box-body -->
+          </div>
+			
+      </div>
+{% endblock %}
+

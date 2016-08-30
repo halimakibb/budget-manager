@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <Name>TaskScheduler</Name>
+    <RootNamespace>TaskScheduler</RootNamespace>
+    <InterpreterId>{52e52377-401b-45a4-859e-48d398bf879d}</InterpreterId>
+    <InterpreterVersion>3.5</InterpreterVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>1245979d-63f6-4f76-b6f5-400399dc00c2</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <ProjectTypeGuids>{5F0BE9CA-D677-4A4D-8806-6076C0FAAD37};{349c5851-65df-11da-9384-00065b846f21};{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <StartupFile>manage.py</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <LaunchProvider>Django launcher</LaunchProvider>
+    <OutputPath>.</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="app\forms.py" />
+    <Compile Include="app\models.py" />
+    <Compile Include="app\tests.py" />
+    <Compile Include="app\views.py" />
+    <Compile Include="app\__init__.py" />
+    <Compile Include="app\migrations\__init__.py" />
+    <Compile Include="manage.py" />
+    <Compile Include="TaskScheduler\__init__.py" />
+    <Compile Include="TaskScheduler\settings.py" />
+    <Compile Include="TaskScheduler\urls.py" />
+    <Compile Include="TaskScheduler\wsgi.py" />
+    <Compile Include="task_scheduler\admin.py" />
+    <Compile Include="task_scheduler\apps.py" />
+    <Compile Include="task_scheduler\views\budget\views.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="task_scheduler\forms.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="task_scheduler\views\login_and_registration\views.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="task_scheduler\urls.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="task_scheduler\migrations\__init__.py" />
+    <Compile Include="task_scheduler\models.py" />
+    <Compile Include="task_scheduler\tests.py" />
+    <Compile Include="task_scheduler\__init__.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="app\" />
+    <Folder Include="app\migrations\" />
+    <Folder Include="app\static\" />
+    <Folder Include="app\static\app\" />
+    <Folder Include="app\static\app\content\" />
+    <Folder Include="app\static\app\fonts\" />
+    <Folder Include="app\static\app\scripts\" />
+    <Folder Include="app\templates\" />
+    <Folder Include="app\templates\app\" />
+    <Folder Include="TaskScheduler\" />
+    <Folder Include="task_scheduler\" />
+    <Folder Include="task_scheduler\migrations\" />
+    <Folder Include="task_scheduler\views\login_and_registration\" />
+    <Folder Include="task_scheduler\views\budget\" />
+    <Folder Include="task_scheduler\views\" />
+    <Folder Include="task_scheduler\static\task_scheduler\" />
+    <Folder Include="task_scheduler\static\task_scheduler\bootstrap\" />
+    <Folder Include="task_scheduler\static\task_scheduler\bootstrap\css\" />
+    <Folder Include="task_scheduler\static\task_scheduler\bootstrap\fonts\" />
+    <Folder Include="task_scheduler\static\task_scheduler\bootstrap\js\" />
+    <Folder Include="task_scheduler\static\task_scheduler\dist\" />
+    <Folder Include="task_scheduler\static\task_scheduler\dist\css\" />
+    <Folder Include="task_scheduler\static\task_scheduler\dist\css\skins\" />
+    <Folder Include="task_scheduler\static\task_scheduler\dist\img\" />
+    <Folder Include="task_scheduler\static\task_scheduler\dist\img\credit\" />
+    <Folder Include="task_scheduler\static\task_scheduler\dist\js\" />
+    <Folder Include="task_scheduler\static\task_scheduler\dist\js\pages\" />
+    <Folder Include="task_scheduler\templates\" />
+    <Folder Include="task_scheduler\static\" />
+    <Folder Include="task_scheduler\templates\task_scheduler\layout\" />
+    <Folder Include="task_scheduler\templates\task_scheduler\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="requirements.txt" />
+    <Content Include="db.sqlite3" />
+    <Content Include="app\static\app\content\bootstrap.css" />
+    <Content Include="app\static\app\content\bootstrap.min.css" />
+    <Content Include="app\static\app\content\site.css" />
+    <Content Include="app\static\app\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="app\static\app\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="app\static\app\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="app\static\app\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="app\static\app\scripts\bootstrap.js" />
+    <Content Include="app\static\app\scripts\bootstrap.min.js" />
+    <Content Include="app\static\app\scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="app\static\app\scripts\jquery-1.10.2.js" />
+    <Content Include="app\static\app\scripts\jquery-1.10.2.min.js" />
+    <Content Include="app\static\app\scripts\jquery-1.10.2.min.map" />
+    <Content Include="app\static\app\scripts\jquery.validate-vsdoc.js" />
+    <Content Include="app\static\app\scripts\jquery.validate.js" />
+    <Content Include="app\static\app\scripts\jquery.validate.min.js" />
+    <Content Include="app\static\app\scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="app\static\app\scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="app\static\app\scripts\modernizr-2.6.2.js" />
+    <Content Include="app\static\app\scripts\respond.js" />
+    <Content Include="app\static\app\scripts\respond.min.js" />
+    <Content Include="app\static\app\scripts\_references.js" />
+    <Content Include="app\templates\app\about.html" />
+    <Content Include="app\templates\app\contact.html" />
+    <Content Include="app\templates\app\index.html" />
+    <Content Include="app\templates\app\layout.html" />
+    <Content Include="app\templates\app\login.html" />
+    <Content Include="app\templates\app\loginpartial.html" />
+    <Content Include="task_scheduler\static\task_scheduler\bootstrap\css\bootstrap.css" />
+    <Content Include="task_scheduler\static\task_scheduler\bootstrap\css\bootstrap.css.map" />
+    <Content Include="task_scheduler\static\task_scheduler\bootstrap\css\bootstrap.min.css" />
+    <Content Include="task_scheduler\static\task_scheduler\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="task_scheduler\static\task_scheduler\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="task_scheduler\static\task_scheduler\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="task_scheduler\static\task_scheduler\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="task_scheduler\static\task_scheduler\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="task_scheduler\static\task_scheduler\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="task_scheduler\static\task_scheduler\bootstrap\js\bootstrap.js" />
+    <Content Include="task_scheduler\static\task_scheduler\bootstrap\js\bootstrap.min.js" />
+    <Content Include="task_scheduler\static\task_scheduler\bootstrap\js\npm.js" />
+    <Content Include="task_scheduler\static\task_scheduler\dist\css\AdminLTE.css" />
+    <Content Include="task_scheduler\static\task_scheduler\dist\css\AdminLTE.min.css" />
+    <Content Include="task_scheduler\static\task_scheduler\dist\css\MonthPicker.css" />
+    <Content Include="task_scheduler\static\task_scheduler\dist\css\skins\skin-black-light.css" />
+    <Content Include="task_scheduler\static\task_scheduler\dist\css\skins\skin-black-light.min.css" />
+    <Content Include="task_scheduler\static\task_scheduler\dist\css\skins\skin-black.css" />
+    <Content Include="task_scheduler\static\task_scheduler\dist\css\skins\skin-black.min.css" />
+    <Content Include="task_scheduler\static\task_scheduler\dist\css\skins\skin-blue-light.css" />
+    <Content Include="task_scheduler\static\task_scheduler\dist\css\skins\skin-blue-light.min.css" />
+    <Content Include="task_scheduler\static\task_scheduler\dist\css\skins\skin-blue.css" />
+    <Content Include="task_scheduler\static\task_scheduler\dist\css\skins\skin-blue.min.css" />
+    <Content Include="task_scheduler\static\task_scheduler\dist\css\skins\skin-green-light.css" />
+    <Content Include="task_scheduler\static\task_scheduler\dist\css\skins\skin-green-light.min.css" />
+    <Content Include="task_scheduler\static\task_scheduler\dist\css\skins\skin-green.css" />
+    <Content Include="task_scheduler\static\task_scheduler\dist\css\skins\skin-green.min.css" />
+    <Content Include="task_scheduler\static\task_scheduler\dist\css\skins\skin-purple-light.css" />
+    <Content Include="task_scheduler\static\task_scheduler\dist\css\skins\skin-purple-light.min.css" />
+    <Content Include="task_scheduler\static\task_scheduler\dist\css\skins\skin-purple.css" />
+    <Content Include="task_scheduler\static\task_scheduler\dist\css\skins\skin-purple.min.css" />
+    <Content Include="task_scheduler\static\task_scheduler\dist\css\skins\skin-red-light.css" />
+    <Content Include="task_scheduler\static\task_scheduler\dist\css\skins\skin-red-light.min.css" />
+    <Content Include="task_scheduler\static\task_scheduler\dist\css\skins\skin-red.css" />
+    <Content Include="task_scheduler\static\task_scheduler\dist\css\skins\skin-red.min.css" />
+    <Content Include="task_scheduler\static\task_scheduler\dist\css\skins\skin-yellow-light.css" />
+    <Content Include="task_scheduler\static\task_scheduler\dist\css\skins\skin-yellow-light.min.css" />
+    <Content Include="task_scheduler\static\task_scheduler\dist\css\skins\skin-yellow.css" />
+    <Content Include="task_scheduler\static\task_scheduler\dist\css\skins\skin-yellow.min.css" />
+    <Content Include="task_scheduler\static\task_scheduler\dist\css\skins\_all-skins.css" />
+    <Content Include="task_scheduler\static\task_scheduler\dist\css\skins\_all-skins.min.css" />
+    <Content Include="task_scheduler\static\task_scheduler\dist\img\avatar.png" />
+    <Content Include="task_scheduler\static\task_scheduler\dist\img\avatar04.png" />
+    <Content Include="task_scheduler\static\task_scheduler\dist\img\avatar2.png" />
+    <Content Include="task_scheduler\static\task_scheduler\dist\img\avatar3.png" />
+    <Content Include="task_scheduler\static\task_scheduler\dist\img\avatar5.png" />
+    <Content Include="task_scheduler\static\task_scheduler\dist\img\boxed-bg.jpg" />
+    <Content Include="task_scheduler\static\task_scheduler\dist\img\boxed-bg.png" />
+    <Content Include="task_scheduler\static\task_scheduler\dist\img\calendar.gif" />
+    <Content Include="task_scheduler\static\task_scheduler\dist\img\credit\american-express.png" />
+    <Content Include="task_scheduler\static\task_scheduler\dist\img\credit\cirrus.png" />
+    <Content Include="task_scheduler\static\task_scheduler\dist\img\credit\mastercard.png" />
+    <Content Include="task_scheduler\static\task_scheduler\dist\img\credit\mestro.png" />
+    <Content Include="task_scheduler\static\task_scheduler\dist\img\credit\paypal.png" />
+    <Content Include="task_scheduler\static\task_scheduler\dist\img\credit\paypal2.png" />
+    <Content Include="task_scheduler\static\task_scheduler\dist\img\credit\visa.png" />
+    <Content Include="task_scheduler\static\task_scheduler\dist\img\default-50x50.gif" />
+    <Content Include="task_scheduler\static\task_scheduler\dist\img\icons.png" />
+    <Content Include="task_scheduler\static\task_scheduler\dist\img\photo1.png" />
+    <Content Include="task_scheduler\static\task_scheduler\dist\img\photo2.png" />
+    <Content Include="task_scheduler\static\task_scheduler\dist\img\photo3.jpg" />
+    <Content Include="task_scheduler\static\task_scheduler\dist\img\photo4.jpg" />
+    <Content Include="task_scheduler\static\task_scheduler\dist\img\user1-128x128.jpg" />
+    <Content Include="task_scheduler\static\task_scheduler\dist\img\user2-160x160.jpg" />
+    <Content Include="task_scheduler\static\task_scheduler\dist\img\user3-128x128.jpg" />
+    <Content Include="task_scheduler\static\task_scheduler\dist\img\user4-128x128.jpg" />
+    <Content Include="task_scheduler\static\task_scheduler\dist\img\user5-128x128.jpg" />
+    <Content Include="task_scheduler\static\task_scheduler\dist\img\user6-128x128.jpg" />
+    <Content Include="task_scheduler\static\task_scheduler\dist\img\user7-128x128.jpg" />
+    <Content Include="task_scheduler\static\task_scheduler\dist\img\user8-128x128.jpg" />
+    <Content Include="task_scheduler\static\task_scheduler\dist\js\app.js" />
+    <Content Include="task_scheduler\static\task_scheduler\dist\js\app.min.js" />
+    <Content Include="task_scheduler\static\task_scheduler\dist\js\demo.js" />
+    <Content Include="task_scheduler\static\task_scheduler\dist\js\MonthPicker.js" />
+    <Content Include="task_scheduler\static\task_scheduler\dist\js\pages\dashboard.js" />
+    <Content Include="task_scheduler\static\task_scheduler\dist\js\pages\dashboard2.js" />
+    <Content Include="task_scheduler\templates\task_scheduler\editbudget.html" />
+    <Content Include="task_scheduler\templates\task_scheduler\budget.html" />
+    <Content Include="task_scheduler\templates\task_scheduler\index.html" />
+    <Content Include="task_scheduler\templates\task_scheduler\layout\top-nav.html" />
+    <Content Include="task_scheduler\templates\task_scheduler\login.html" />
+    <Content Include="task_scheduler\templates\task_scheduler\newspending.html" />
+    <Content Include="task_scheduler\templates\task_scheduler\register.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="readme.mht">
+      <SubType>WebBrowser</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Interpreter Include="env\">
+      <Id>{52e52377-401b-45a4-859e-48d398bf879d}</Id>
+      <BaseInterpreter>{2af0f10d-7135-4994-9156-5d01c9c11b7e}</BaseInterpreter>
+      <Version>3.5</Version>
+      <Description>env (Python 3.5)</Description>
+      <InterpreterPath>Scripts\python.exe</InterpreterPath>
+      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
+      <LibraryPath>Lib\</LibraryPath>
+      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
+      <Architecture>X86</Architecture>
+    </Interpreter>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Django.targets" />
+  <!-- Specify pre- and post-build commands in the BeforeBuild and 
+       AfterBuild targets below. -->
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <AutoAssignPort>True</AutoAssignPort>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

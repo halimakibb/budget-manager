@@ -1,0 +1,59 @@
+﻿{% extends 'task_scheduler/layout/top-nav.html' %}
+{% load staticfiles %}
+{% load humanize %}
+{% block footer %}
+	<script>
+	$("#id_date").datepicker({
+		showOn: "focus",
+		dateFormat: "yy-mm-dd"
+	
+	});
+	$('#id_amount').inputmask({ 'mask': "9{0,5}[.9{0,2}]", greedy: false });
+	</script>
+{% endblock %}
+{% load widget_tweaks %}
+
+{% block content_title %}
+Edit Budget
+{% endblock %}
+
+{% block content %}
+
+	<div class="box" style="width:70%; margin:auto; padding:25px">
+		
+			<div class="box-body">
+				<form method="POST" class="post-form">{% csrf_token %}
+					<div class="input-group">
+						<span class="input-group-addon"><i class="fa fa-cart-arrow-down"></i></span>
+						<input id="id_name" name="id_name" class="form-control" type="text" value="{{ budget.name }}" />
+					</div>
+					<div class="input-group">
+						<span class="input-group-addon"><i class="fa fa-calendar-check-o"></i></span>
+						<input id="id_date" name="id_date" class="form-control" type="text" value="{{ budget_date }}" />
+					</div>
+					<div class="input-group">
+						<span class="input-group-addon"><i class="fa fa-money"></i></span>
+						<input id="id_amount" name="id_amount" class="form-control" type="text" value="{{ budget.amount|intcomma }}" />
+					</div>
+					<div class="input-group">
+						
+						<span class="input-group-addon"><i class="fa fa-shopping-basket"></i></span>
+						<select id="id_type" name="id_type" class="form-control">
+							{% for type in budget_type %}
+								{% if type == budget.type %}
+									<option selected="selected" value="{{ type.id }}">{{ type }}</option>
+								{% else %}
+									<option value="{{ type.id }}">{{ type }}</option>
+								{% endif %}
+							{% endfor %}
+						</select>
+					</div>
+					<br />
+				
+				<button type="submit" class="save btn btn-primary">Save</button>
+				</form>
+			</div>
+	</div>
+
+{% endblock %}
+

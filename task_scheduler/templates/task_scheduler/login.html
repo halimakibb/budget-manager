@@ -1,0 +1,27 @@
+﻿{% extends 'task_scheduler/layout/top-nav.html' %}
+{% load staticfiles %}
+
+{% block content_title %}
+Login
+{% endblock %}
+
+{% block content %}
+
+	<div class="box" style="width:70%; margin:auto; padding:25px">
+		<form method="POST" action="/scheduler/login" class="post-form">{% csrf_token %}
+		<div class="box-body">
+			<div class="input-group">
+				<span class="input-group-addon"><i class="fa fa-user"></i></span>
+				<input id="username" name="username" class="form-control" type="text" placeholder="username" />
+			</div>
+			<div class="input-group">
+				<span class="input-group-addon"><i class="fa fa-key"></i></span>
+				<input id="password" name="password" class="form-control" type="password" placeholder="password" />
+			</div>
+			<br />
+			<button type="submit" class="save btn btn-primary">Save</button>
+		</div>
+    </form>
+	</div>
+
+{% endblock %}

@@ -1,0 +1,115 @@
+﻿{% extends 'task_scheduler/layout/top-nav.html' %}
+{% load staticfiles %}
+
+{% block header %}
+
+{% endblock %}
+{% block footer %}
+	<script type="text/javascript">
+	$("#id_date").datepicker({
+		showOn: "focus",
+		dateFormat: "yy-mm-dd"
+		
+	});
+
+	// Wait for the page to load first
+
+		//Get a reference to the link on the page
+		// with an id of "mylink"
+		var a = $("#addbudget");
+
+		//Set code to run when the link is clicked
+		// by assigning a function to "onclick"
+		a.click(function () {
+			$("#div_type_name").css("display", "table")
+			$("#div_type_creditordebit").css("display", "table")
+			return false;
+
+		});
+
+		$("#add-budget").submit(function () {
+			
+			var type = ($("#id_type").val());
+			
+			if ($("#id_type").val() == "none") {
+
+				if ($("#type_name").val() == "" && ($("#type_creditordebit").val() == "none")) {
+					alert("Please fill budget type, or add new budget type")
+
+					return false;
+				}
+			}
+
+			else {
+				
+				if ($("#type_name").val() != "" || ($("#type_creditordebit").val() != "none")) {
+					alert("You cannot fill budget type and add new budget type at the same time")
+					debugger;
+					return false;
+				}
+			}
+		})
+	</script>
+{% endblock %}
+{% load widget_tweaks %}
+
+{% block content_title %}
+New Spending
+{% endblock %}
+
+{% block content %}
+
+	<div class="box" style="width:70%; margin:auto; padding:25px">
+		
+			<div class="box-body">
+				<form method="POST" id="add-budget" class="post-form">{% csrf_token %}
+					{{ form.non_field_errors }}
+					<div class="input-group">
+						{{ form.name.errors }}
+						<span class="input-group-addon"><i class="fa fa-cart-arrow-down"></i></span>
+						{% render_field form.name class="form-control" placeholder="Transaction" %}
+					</div>
+					<div class="input-group">
+						{{ form.date.errors }}
+						<span class="input-group-addon"><i class="fa fa-calendar-check-o"></i></span>
+						{% render_field form.date class="form-control" placeholder="Date" %}
+					</div>
+					<div class="input-group">
+						{{ form.amount.errors }}
+						<span class="input-group-addon"><i class="fa fa-money"></i></span>
+						{% render_field form.amount class="form-control" placeholder="Amount" %}
+					</div>
+					<div class="input-group">
+						<span class="input-group-addon"><i class="fa fa-shopping-basket"></i></span>
+						<select id="id_type" name="type" class="form-control">
+							<option value="none">--- Select Transaction Types ---</option>
+							{% for type in types %}
+								<option value="{{ type.id }}">{{ type }}</option>
+							{% endfor %}
+						</select>
+					</div>
+					<div class="input-group" style="padding-top:15px; padding-bottom:15px">
+						<a id="addbudget" href="#" class="btn btn-warning"><span class="fa fa-plus"></span>  Add Budget Type</a>
+					</div>
+					<div class="input-group" id="div_type_name" style="display:none">
+						<span class="input-group-addon"><i class="fa fa-shopping-basket"></i></span>
+						<input id="type_name" name="type_name" type="text" class="form-control" placeholder="Budget Type" />
+							
+					</div>
+					<div class="input-group" id="div_type_creditordebit" style="display:none">
+						<span class="input-group-addon"><i class="fa fa-shopping-basket"></i></span>
+						<select id="type_creditordebit" name="type_creditordebit" class="form-control">
+							<option value="none">--- Select Transaction Types ---</option>
+							<option value="2">Credit</option>
+							<option value="1">Debit</option>
+						</select>
+					</div>
+					<br />
+				
+				<button type="submit" class="save btn btn-primary">Save</button>
+				</form>
+			</div>
+	</div>
+
+{% endblock %}
+

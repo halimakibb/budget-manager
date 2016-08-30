@@ -1,0 +1,15 @@
+c:\users\habibmalik\documents\visual studio 2015\Projects\TaskScheduler\TaskScheduler\bin\Microsoft.PythonTools.WebRole.dll
+c:\users\habibmalik\documents\visual studio 2015\Projects\TaskScheduler\TaskScheduler\obj\Debug\attach_server.py
+c:\users\habibmalik\documents\visual studio 2015\Projects\TaskScheduler\TaskScheduler\obj\Debug\visualstudio_py_debugger.py
+c:\users\habibmalik\documents\visual studio 2015\Projects\TaskScheduler\TaskScheduler\obj\Debug\visualstudio_py_repl.py
+c:\users\habibmalik\documents\visual studio 2015\Projects\TaskScheduler\TaskScheduler\obj\Debug\visualstudio_py_util.py
+c:\users\habibmalik\documents\visual studio 2015\Projects\TaskScheduler\TaskScheduler\obj\Debug\__init__.py
+c:\users\habibmalik\documents\visual studio 2015\Projects\TaskScheduler\TaskScheduler\obj\Debug\__main__.py
+c:\users\habibmalik\documents\visual studio 2015\Projects\TaskScheduler\TaskScheduler\bin\AzureSetup.cfg
+c:\users\habibmalik\documents\visual studio 2015\Projects\TaskScheduler\TaskScheduler\bin\Microsoft.PythonTools.AzureSetup.exe
+c:\users\habibmalik\documents\visual studio 2015\Projects\TaskScheduler\TaskScheduler\bin\Microsoft.PythonTools.AzureSetup.exe.config
+c:\users\habibmalik\documents\visual studio 2015\Projects\TaskScheduler\TaskScheduler\bin\wfastcgi.py
+c:\users\habibmalik\documents\visual studio 2015\Projects\TaskScheduler\TaskScheduler\obj\Debug\deployment-updated-pyvenv.cfg
+c:\users\habibmalik\documents\visual studio 2015\Projects\TaskScheduler\TaskScheduler\ptvs_virtualenv_proxy.py
+c:\users\habibmalik\documents\visual studio 2015\Projects\TaskScheduler\TaskScheduler\obj\Debug\web.config
+c:\users\habibmalik\documents\visual studio 2015\Projects\TaskScheduler\TaskScheduler\obj\Debug\web.debug.config
