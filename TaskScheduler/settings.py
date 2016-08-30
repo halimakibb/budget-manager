@@ -80,16 +80,16 @@ WSGI_APPLICATION = 'TaskScheduler.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'task_scheduler',
-        'USER': 'postgres',
-        'PASSWORD': 'hardrock',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
-    }
-}
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.postgresql',
+#        'NAME': 'task_scheduler',
+#        'USER': 'postgres',
+#        'PASSWORD': 'hardrock',
+#        'HOST': '127.0.0.1',
+#        'PORT': '5432',
+#    }
+#}
 
 # Database for Production
 
