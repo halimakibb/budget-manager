@@ -9777,3 +9777,107 @@ C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Micro
 2016-08-30T13:38:09: Saving group "C:\Users\habibmalik\app_scheduler\budget-manager\TaskScheduler\env\Lib\site-packages\widget_tweaks"
 2016-08-30T13:38:09: End of group "C:\Users\habibmalik\app_scheduler\budget-manager\TaskScheduler\env\Lib\site-packages\widget_tweaks"
 2016-08-30T13:38:12: Deleting 0 files
+
+2016-08-30T14:20:52: Start analysis
+2016-08-30T14:20:52: [WARNING] Library was set explicitly - skipping path detection
+2016-08-30T14:20:52: IncludeModulesFromModulePath = win32com
+2016-08-30T14:20:57: Deleting 0 files
+2016-08-30T14:20:57: astropy.CallDepth = 0
+2016-08-30T14:20:57: matplotlib.CallDepth = 3
+2016-08-30T14:20:57: pandas.CallDepth = 0
+2016-08-30T14:20:57: sympy.CallDepth = 0
+2016-08-30T14:20:57: Start group "C:\Users\habibmalik\app_scheduler\budget-manager\TaskScheduler\env\Lib\site-packages\gunicorn" with 44 files
+2016-08-30T14:20:57: Parsing "gunicorn.arbiter" ("C:\Users\habibmalik\app_scheduler\budget-manager\TaskScheduler\env\Lib\site-packages\gunicorn\arbiter.py")
+2016-08-30T14:20:58: Parsing "gunicorn.argparse_compat" ("C:\Users\habibmalik\app_scheduler\budget-manager\TaskScheduler\env\Lib\site-packages\gunicorn\argparse_compat.py")
+2016-08-30T14:20:58: Parsing "gunicorn.config" ("C:\Users\habibmalik\app_scheduler\budget-manager\TaskScheduler\env\Lib\site-packages\gunicorn\config.py")
+2016-08-30T14:20:58: Parsing "gunicorn.debug" ("C:\Users\habibmalik\app_scheduler\budget-manager\TaskScheduler\env\Lib\site-packages\gunicorn\debug.py")
+2016-08-30T14:20:58: Parsing "gunicorn.errors" ("C:\Users\habibmalik\app_scheduler\budget-manager\TaskScheduler\env\Lib\site-packages\gunicorn\errors.py")
+2016-08-30T14:20:58: Parsing "gunicorn.glogging" ("C:\Users\habibmalik\app_scheduler\budget-manager\TaskScheduler\env\Lib\site-packages\gunicorn\glogging.py")
+2016-08-30T14:20:58: Parsing "gunicorn.pidfile" ("C:\Users\habibmalik\app_scheduler\budget-manager\TaskScheduler\env\Lib\site-packages\gunicorn\pidfile.py")
+2016-08-30T14:20:58: Parsing "gunicorn.reloader" ("C:\Users\habibmalik\app_scheduler\budget-manager\TaskScheduler\env\Lib\site-packages\gunicorn\reloader.py")
+2016-08-30T14:20:58: Parsing "gunicorn.selectors" ("C:\Users\habibmalik\app_scheduler\budget-manager\TaskScheduler\env\Lib\site-packages\gunicorn\selectors.py")
+2016-08-30T14:20:58: Parsing "gunicorn.six" ("C:\Users\habibmalik\app_scheduler\budget-manager\TaskScheduler\env\Lib\site-packages\gunicorn\six.py")
+2016-08-30T14:20:58: Parsing "gunicorn.sock" ("C:\Users\habibmalik\app_scheduler\budget-manager\TaskScheduler\env\Lib\site-packages\gunicorn\sock.py")
+2016-08-30T14:20:58: Parsing "gunicorn.util" ("C:\Users\habibmalik\app_scheduler\budget-manager\TaskScheduler\env\Lib\site-packages\gunicorn\util.py")
+2016-08-30T14:20:58: Parsing "gunicorn._compat" ("C:\Users\habibmalik\app_scheduler\budget-manager\TaskScheduler\env\Lib\site-packages\gunicorn\_compat.py")
+2016-08-30T14:20:58: Parsing "gunicorn" ("C:\Users\habibmalik\app_scheduler\budget-manager\TaskScheduler\env\Lib\site-packages\gunicorn\__init__.py")
+2016-08-30T14:20:58: Parsing "gunicorn.app.base" ("C:\Users\habibmalik\app_scheduler\budget-manager\TaskScheduler\env\Lib\site-packages\gunicorn\app\base.py")
+2016-08-30T14:20:58: Parsing "gunicorn.app.djangoapp" ("C:\Users\habibmalik\app_scheduler\budget-manager\TaskScheduler\env\Lib\site-packages\gunicorn\app\djangoapp.py")
+2016-08-30T14:20:58: Parsing "gunicorn.app.django_wsgi" ("C:\Users\habibmalik\app_scheduler\budget-manager\TaskScheduler\env\Lib\site-packages\gunicorn\app\django_wsgi.py")
+2016-08-30T14:20:58: Parsing "gunicorn.app.pasterapp" ("C:\Users\habibmalik\app_scheduler\budget-manager\TaskScheduler\env\Lib\site-packages\gunicorn\app\pasterapp.py")
+2016-08-30T14:20:58: Parsing "gunicorn.app.wsgiapp" ("C:\Users\habibmalik\app_scheduler\budget-manager\TaskScheduler\env\Lib\site-packages\gunicorn\app\wsgiapp.py")
+2016-08-30T14:20:58: Parsing "gunicorn.app" ("C:\Users\habibmalik\app_scheduler\budget-manager\TaskScheduler\env\Lib\site-packages\gunicorn\app\__init__.py")
+2016-08-30T14:20:58: Parsing "gunicorn.http.body" ("C:\Users\habibmalik\app_scheduler\budget-manager\TaskScheduler\env\Lib\site-packages\gunicorn\http\body.py")
+2016-08-30T14:20:58: Parsing "gunicorn.http.errors" ("C:\Users\habibmalik\app_scheduler\budget-manager\TaskScheduler\env\Lib\site-packages\gunicorn\http\errors.py")
+2016-08-30T14:20:58: Parsing "gunicorn.http.message" ("C:\Users\habibmalik\app_scheduler\budget-manager\TaskScheduler\env\Lib\site-packages\gunicorn\http\message.py")
+2016-08-30T14:20:58: Parsing "gunicorn.http.parser" ("C:\Users\habibmalik\app_scheduler\budget-manager\TaskScheduler\env\Lib\site-packages\gunicorn\http\parser.py")
+2016-08-30T14:20:58: Parsing "gunicorn.http.unreader" ("C:\Users\habibmalik\app_scheduler\budget-manager\TaskScheduler\env\Lib\site-packages\gunicorn\http\unreader.py")
+2016-08-30T14:20:58: Parsing "gunicorn.http.wsgi" ("C:\Users\habibmalik\app_scheduler\budget-manager\TaskScheduler\env\Lib\site-packages\gunicorn\http\wsgi.py")
+2016-08-30T14:20:58: Parsing "gunicorn.http._sendfile" ("C:\Users\habibmalik\app_scheduler\budget-manager\TaskScheduler\env\Lib\site-packages\gunicorn\http\_sendfile.py")
+2016-08-30T14:20:58: Parsing "gunicorn.http" ("C:\Users\habibmalik\app_scheduler\budget-manager\TaskScheduler\env\Lib\site-packages\gunicorn\http\__init__.py")
+2016-08-30T14:20:58: Parsing "gunicorn.instrument.statsd" ("C:\Users\habibmalik\app_scheduler\budget-manager\TaskScheduler\env\Lib\site-packages\gunicorn\instrument\statsd.py")
+2016-08-30T14:20:58: Parsing "gunicorn.instrument" ("C:\Users\habibmalik\app_scheduler\budget-manager\TaskScheduler\env\Lib\site-packages\gunicorn\instrument\__init__.py")
+2016-08-30T14:20:58: Parsing "gunicorn.management" ("C:\Users\habibmalik\app_scheduler\budget-manager\TaskScheduler\env\Lib\site-packages\gunicorn\management\__init__.py")
+2016-08-30T14:20:58: Parsing "gunicorn.management.commands.run_gunicorn" ("C:\Users\habibmalik\app_scheduler\budget-manager\TaskScheduler\env\Lib\site-packages\gunicorn\management\commands\run_gunicorn.py")
+2016-08-30T14:20:58: Parsing "gunicorn.management.commands" ("C:\Users\habibmalik\app_scheduler\budget-manager\TaskScheduler\env\Lib\site-packages\gunicorn\management\commands\__init__.py")
+2016-08-30T14:20:58: Parsing "gunicorn.workers.async" ("C:\Users\habibmalik\app_scheduler\budget-manager\TaskScheduler\env\Lib\site-packages\gunicorn\workers\async.py")
+2016-08-30T14:20:58: Parsing "gunicorn.workers.base" ("C:\Users\habibmalik\app_scheduler\budget-manager\TaskScheduler\env\Lib\site-packages\gunicorn\workers\base.py")
+2016-08-30T14:20:58: Parsing "gunicorn.workers.gaiohttp" ("C:\Users\habibmalik\app_scheduler\budget-manager\TaskScheduler\env\Lib\site-packages\gunicorn\workers\gaiohttp.py")
+2016-08-30T14:20:58: Parsing "gunicorn.workers.geventlet" ("C:\Users\habibmalik\app_scheduler\budget-manager\TaskScheduler\env\Lib\site-packages\gunicorn\workers\geventlet.py")
+2016-08-30T14:20:58: Parsing "gunicorn.workers.ggevent" ("C:\Users\habibmalik\app_scheduler\budget-manager\TaskScheduler\env\Lib\site-packages\gunicorn\workers\ggevent.py")
+2016-08-30T14:20:58: Parsing "gunicorn.workers.gthread" ("C:\Users\habibmalik\app_scheduler\budget-manager\TaskScheduler\env\Lib\site-packages\gunicorn\workers\gthread.py")
+2016-08-30T14:20:58: Parsing "gunicorn.workers.gtornado" ("C:\Users\habibmalik\app_scheduler\budget-manager\TaskScheduler\env\Lib\site-packages\gunicorn\workers\gtornado.py")
+2016-08-30T14:20:58: Parsing "gunicorn.workers.sync" ("C:\Users\habibmalik\app_scheduler\budget-manager\TaskScheduler\env\Lib\site-packages\gunicorn\workers\sync.py")
+2016-08-30T14:20:58: Parsing "gunicorn.workers.workertmp" ("C:\Users\habibmalik\app_scheduler\budget-manager\TaskScheduler\env\Lib\site-packages\gunicorn\workers\workertmp.py")
+2016-08-30T14:20:58: Parsing "gunicorn.workers._gaiohttp" ("C:\Users\habibmalik\app_scheduler\budget-manager\TaskScheduler\env\Lib\site-packages\gunicorn\workers\_gaiohttp.py")
+2016-08-30T14:20:58: Parsing "gunicorn.workers" ("C:\Users\habibmalik\app_scheduler\budget-manager\TaskScheduler\env\Lib\site-packages\gunicorn\workers\__init__.py")
+2016-08-30T14:20:58: Parsing complete
+2016-08-30T14:20:58: Analyzing "gunicorn.arbiter"
+2016-08-30T14:20:58: Analyzing "gunicorn.argparse_compat"
+2016-08-30T14:20:58: Analyzing "gunicorn.config"
+2016-08-30T14:20:58: Analyzing "gunicorn.debug"
+2016-08-30T14:20:58: Analyzing "gunicorn.errors"
+2016-08-30T14:20:58: Analyzing "gunicorn.glogging"
+2016-08-30T14:20:58: Analyzing "gunicorn.pidfile"
+2016-08-30T14:20:58: Analyzing "gunicorn.reloader"
+2016-08-30T14:20:58: Analyzing "gunicorn.selectors"
+2016-08-30T14:20:58: Analyzing "gunicorn.six"
+2016-08-30T14:20:58: Analyzing "gunicorn.sock"
+2016-08-30T14:20:58: Analyzing "gunicorn.util"
+2016-08-30T14:20:58: Analyzing "gunicorn._compat"
+2016-08-30T14:20:58: Analyzing "gunicorn"
+2016-08-30T14:20:58: Analyzing "gunicorn.app.base"
+2016-08-30T14:20:58: Analyzing "gunicorn.app.djangoapp"
+2016-08-30T14:20:58: Analyzing "gunicorn.app.django_wsgi"
+2016-08-30T14:20:58: Analyzing "gunicorn.app.pasterapp"
+2016-08-30T14:20:58: Analyzing "gunicorn.app.wsgiapp"
+2016-08-30T14:20:58: Analyzing "gunicorn.app"
+2016-08-30T14:20:58: Analyzing "gunicorn.http.body"
+2016-08-30T14:20:58: Analyzing "gunicorn.http.errors"
+2016-08-30T14:20:58: Analyzing "gunicorn.http.message"
+2016-08-30T14:20:58: Analyzing "gunicorn.http.parser"
+2016-08-30T14:20:58: Analyzing "gunicorn.http.unreader"
+2016-08-30T14:20:58: Analyzing "gunicorn.http.wsgi"
+2016-08-30T14:20:58: Analyzing "gunicorn.http._sendfile"
+2016-08-30T14:20:58: Analyzing "gunicorn.http"
+2016-08-30T14:20:58: Analyzing "gunicorn.instrument.statsd"
+2016-08-30T14:20:58: Analyzing "gunicorn.instrument"
+2016-08-30T14:20:58: Analyzing "gunicorn.management"
+2016-08-30T14:20:58: Analyzing "gunicorn.management.commands.run_gunicorn"
+2016-08-30T14:20:58: Analyzing "gunicorn.management.commands"
+2016-08-30T14:20:58: Analyzing "gunicorn.workers.async"
+2016-08-30T14:20:58: Analyzing "gunicorn.workers.base"
+2016-08-30T14:20:58: Analyzing "gunicorn.workers.gaiohttp"
+2016-08-30T14:20:58: Analyzing "gunicorn.workers.geventlet"
+2016-08-30T14:20:58: Analyzing "gunicorn.workers.ggevent"
+2016-08-30T14:20:58: Analyzing "gunicorn.workers.gthread"
+2016-08-30T14:20:58: Analyzing "gunicorn.workers.gtornado"
+2016-08-30T14:20:58: Analyzing "gunicorn.workers.sync"
+2016-08-30T14:20:58: Analyzing "gunicorn.workers.workertmp"
+2016-08-30T14:20:58: Analyzing "gunicorn.workers._gaiohttp"
+2016-08-30T14:20:58: Analyzing "gunicorn.workers"
+2016-08-30T14:20:58: Starting analysis of 44 modules
+2016-08-30T14:21:08: Analysis complete
+2016-08-30T14:21:08: Saving group "C:\Users\habibmalik\app_scheduler\budget-manager\TaskScheduler\env\Lib\site-packages\gunicorn"
+2016-08-30T14:21:09: End of group "C:\Users\habibmalik\app_scheduler\budget-manager\TaskScheduler\env\Lib\site-packages\gunicorn"
+2016-08-30T14:21:12: Deleting 0 files
