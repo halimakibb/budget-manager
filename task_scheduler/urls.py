@@ -1,7 +1,7 @@
 from django.conf.urls import url
 from . import views
-from task_scheduler.views.login_and_registration import views as loginviews
-from task_scheduler.views.budget import views as budgetviews
+from .views.login_and_registration import views as loginviews
+from .views.budget import views as budgetviews
 
 urlpatterns = [
 	
