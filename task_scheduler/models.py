@@ -6,7 +6,7 @@ class User(models.Model):
 	username = models.CharField(max_length=20, unique=True)
 	first_name = models.CharField(max_length=50)
 	last_name = models.CharField(max_length=50)
-	email = models.EmailField()
+	email = models.EmailField(unique = True)
 	password = models.CharField(max_length=200)
 	monthly_budget_target = models.DecimalField(decimal_places=2, max_digits=99)
 	total_saving = models.DecimalField(decimal_places=2, max_digits=99)

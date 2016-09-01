@@ -26,6 +26,9 @@ SECRET_KEY = '4bfb5f6d-e7ca-423a-bc3b-6ad0c265c07b'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# For Production
+# DEBUG = False
+
 ALLOWED_HOSTS = []
 
 
@@ -80,29 +83,29 @@ WSGI_APPLICATION = 'TaskScheduler.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.postgresql',
-#        'NAME': 'task_scheduler',
-#        'USER': 'postgres',
-#        'PASSWORD': 'hardrock',
-#        'HOST': '127.0.0.1',
-#        'PORT': '5432',
-#    }
-#}
-
-# Database for Production
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'de2hllebfqa2hp',
-        'USER': 'aprhoxuvrsglaq',
-        'PASSWORD': '9Vr-hCoKUAVtu_7eZYtDP7eIk-',
-        'HOST': 'ec2-54-235-126-62.compute-1.amazonaws.com',
+        'NAME': 'task_scheduler',
+        'USER': 'postgres',
+        'PASSWORD': 'hardrock',
+        'HOST': '127.0.0.1',
         'PORT': '5432',
     }
 }
+
+# Database for Production
+
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.postgresql',
+#        'NAME': 'de2hllebfqa2hp',
+#        'USER': 'aprhoxuvrsglaq',
+#        'PASSWORD': '9Vr-hCoKUAVtu_7eZYtDP7eIk-',
+#        'HOST': 'ec2-54-235-126-62.compute-1.amazonaws.com',
+#        'PORT': '5432',
+#    }
+#}
 
 
 # Password validation

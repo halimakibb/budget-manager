@@ -115,7 +115,19 @@
 {% endblock %}
 
 {% block content_title %}
-	Budget
+	{% if mode == "recent" %}
+		Recent Spendings
+	{% elif mode == "all" %}
+		All Spendings
+	{% elif mode == "datepicker" %}
+		Spendings for date {{ exact_date|date:"m/d/Y" }}
+	{% elif mode == "weekpicker" %}
+		Spendings for date {{ week_start_date|date:"m/d/Y" }} to {{ week_end_date|date:"m/d/Y" }} 
+	{% elif mode == "monthpicker" %}
+		Spendings for month {{ exact_month }}
+	{% elif mode == "yearpicker" %}
+		Spendings for year {{ year }}
+	{% endif %}
 {% endblock %}
 
 {% block content %}
@@ -157,7 +169,7 @@
 			
             <div class="box-body table-responsive no-padding" style="margin-top:20px">
               <table class="table table-hover">
-				{% if mode == "all" or mode == "datepicker" or mode == "weekpicker" %}
+				{% if mode == "all" or mode == "datepicker" or mode == "weekpicker" or mode == "recent" %}
                 <tr>
                   <th>Name</th>
                   <th>Date</th>
@@ -174,7 +186,7 @@
 					  <td>{{ budget.name }}</td>
 					  <td>{{ budget.date }}</td>
 					  <td>{{ budget.type }}</td>
-					  <td>Rp. {{ budget.amount|intcomma }}</td>
+					  <td>Rp{{ budget.amount|intcomma }}</td>
 					  <td>{{ budget.type.debit_or_credit}}</td>
 					  <td><a href="/scheduler/editbudget/{{ budget.id }}/{{ budgets.number }}"><span class="fa fa-pencil"></span></a></td>
 					  <td><a href="/scheduler/deletebudget/{{ budget.id }}/{{ budgets.number }}"><span class="fa fa-trash"></span></a></td>
@@ -182,7 +194,7 @@
 					  <td style="background-color:lightgreen">{{ budget.name }}</td>
 					  <td style="background-color:lightgreen">{{ budget.date }}</td>
 					  <td style="background-color:lightgreen">{{ budget.type }}</td>
-					  <td style="background-color:lightgreen">Rp. {{ budget.amount|intcomma }}</td>
+					  <td style="background-color:lightgreen">Rp{{ budget.amount|intcomma }}</td>
 					  <td style="background-color:lightgreen">{{ budget.type.debit_or_credit}}</td>
 					  <td style="background-color:lightgreen"><a href="/scheduler/editbudget/{{ budget.id }}/{{ budgets.number }}"><span class="fa fa-pencil"></span></a></td>
 					  <td style="background-color:lightgreen"><a href="/scheduler/deletebudget/{{ budget.id }}/{{ budgets.number }}"><span class="fa fa-trash"></span></a></td>
@@ -197,33 +209,33 @@
                 </tr>
 				  
 				<tr>
-				  <td>Week 1</td>
-				  <td>Rp. {{ week_spendings.0|intcomma }}</td>
-				  <td>Rp. {{ week_incomes.0|intcomma }}</td>
+				  <td><a href="/scheduler/budget/week/{{ start_weeks.0 }}">Week 1</a></td>
+				  <td>Rp{{ week_spendings.0|intcomma }}</td>
+				  <td>Rp{{ week_incomes.0|intcomma }}</td>
 				</tr>
 				
 				<tr>
-				  <td>Week 2</td>
-				  <td>Rp. {{ week_spendings.1|intcomma }}</td>
-				  <td>Rp. {{ week_incomes.1|intcomma }}</td>
+				  <td><a href="/scheduler/budget/week/{{ start_weeks.1 }}">Week 2</a></td>
+				  <td>Rp{{ week_spendings.1|intcomma }}</td>
+				  <td>Rp{{ week_incomes.1|intcomma }}</td>
 				</tr> 
 				
 				<tr>
-				  <td>Week 3</td>
-				  <td>Rp. {{ week_spendings.2|intcomma }}</td>
-				  <td>Rp. {{ week_incomes.2|intcomma }}</td>
+				  <td><a href="/scheduler/budget/week/{{ start_weeks.2 }}">Week 3</a></td>
+				  <td>Rp{{ week_spendings.2|intcomma }}</td>
+				  <td>Rp{{ week_incomes.2|intcomma }}</td>
 				</tr>
 
 				<tr>
-				  <td>Week 4</td>
-				  <td>Rp. {{ week_spendings.3|intcomma }}</td>
-				  <td>Rp. {{ week_incomes.3|intcomma }}</td>
+				  <td><a href="/scheduler/budget/week/{{ start_weeks.3 }}">Week 4</a></td>
+				  <td>Rp{{ week_spendings.3|intcomma }}</td>
+				  <td>Rp{{ week_incomes.3|intcomma }}</td>
 				</tr>
 
 				<tr>
-				  <td>Week 5</td>
-				  <td>Rp. {{ week_spendings.4|intcomma }}</td>
-				  <td>Rp. {{ week_incomes.4|intcomma }}</td>
+				  <td><a href="/scheduler/budget/week/{{ start_weeks.4 }}">Week 5</a></td>
+				  <td>Rp{{ week_spendings.4|intcomma }}</td>
+				  <td>Rp{{ week_incomes.4|intcomma }}</td>
 				</tr>
 				{% elif mode == "yearpicker" %}
 				  <tr>
@@ -233,79 +245,80 @@
                 </tr>
 				  
 				<tr>
-				  <td>January</td>
-				  <td>Rp. {{ month_spendings.0|intcomma }}</td>
-				  <td>Rp. {{ month_incomes.0|intcomma }}</td>
+				  <td><a href="/scheduler/budget/month/01{{ year }}">January</a></td>
+				  <td>Rp{{ month_spendings.0|intcomma }}</td>
+				  <td>Rp{{ month_incomes.0|intcomma }}</td>
 				</tr>
 				
 				<tr>
-				  <td>February</td>
-				  <td>Rp. {{ month_spendings.1|intcomma }}</td>
-				  <td>Rp. {{ month_incomes.1|intcomma }}</td>
+				  <td><a href="/scheduler/budget/month/02{{ year }}">February</a></td>
+				  <td>Rp{{ month_spendings.1|intcomma }}</td>
+				  <td>Rp{{ month_incomes.1|intcomma }}</td>
 				</tr>
 				
 				<tr>
-				  <td>March</td>
-				  <td>Rp. {{ month_spendings.2|intcomma }}</td>
-				  <td>Rp. {{ month_incomes.2|intcomma }}</td>
+				  <td><a href="/scheduler/budget/month/03{{ year }}">March</a></td>
+				  <td>Rp{{ month_spendings.2|intcomma }}</td>
+				  <td>Rp{{ month_incomes.2|intcomma }}</td>
 				</tr>
 
 				<tr>
-				  <td>April</td>
-				  <td>Rp. {{ month_spendings.3|intcomma }}</td>
-				  <td>Rp. {{ month_incomes.3|intcomma }}</td>
+				  <td><a href="/scheduler/budget/month/04{{ year }}">April</a></td>
+				  <td>Rp{{ month_spendings.3|intcomma }}</td>
+				  <td>Rp{{ month_incomes.3|intcomma }}</td>
 				</tr>
 
 				<tr>
-				  <td>May</td>
-				  <td>Rp. {{ month_spendings.4|intcomma }}</td>
-				  <td>Rp. {{ month_incomes.4|intcomma }}</td>
+				  <td><a href="/scheduler/budget/month/05{{ year }}">May</a></td>
+				  <td>Rp{{ month_spendings.4|intcomma }}</td>
+				  <td>Rp{{ month_incomes.4|intcomma }}</td>
 				</tr>
 
 				<tr>
-				  <td>June</td>
-				  <td>Rp. {{ month_spendings.5|intcomma }}</td>
-				  <td>Rp. {{ month_incomes.5|intcomma }}</td>
+				  <td><a href="/scheduler/budget/month/06{{ year }}">June</a></td>
+				  <td>Rp{{ month_spendings.5|intcomma }}</td>
+				  <td>Rp{{ month_incomes.5|intcomma }}</td>
 				</tr>
 				
 				<tr>
-				  <td>July</td>
-				  <td>Rp. {{ month_spendings.6|intcomma }}</td>
-				  <td>Rp. {{ month_incomes.6|intcomma }}</td>
+				  <td><a href="/scheduler/budget/month/07{{ year }}">July</a></td>
+				  <td>Rp{{ month_spendings.6|intcomma }}</td>
+				  <td>Rp{{ month_incomes.6|intcomma }}</td>
 				</tr>
 				
 				<tr>
-				  <td>August</td>
-				  <td>Rp. {{ month_spendings.7|intcomma }}</td>
-				  <td>Rp. {{ month_incomes.7|intcomma }}</td>
+				  <td><a href="/scheduler/budget/month/08{{ year }}">August</a></td>
+				  <td>Rp{{ month_spendings.7|intcomma }}</td>
+				  <td>Rp{{ month_incomes.7|intcomma }}</td>
 				</tr>
 
 				<tr>
-				  <td>September</td>
-				  <td>Rp. {{ month_spendings.8|intcomma }}</td>
-				  <td>Rp. {{ month_incomes.8|intcomma }}</td>
+				  <td><a href="/scheduler/budget/month/09{{ year }}">September</a></td>
+				  <td>Rp{{ month_spendings.8|intcomma }}</td>
+				  <td>Rp{{ month_incomes.8|intcomma }}</td>
 				</tr>
 
 				<tr>
-				  <td>October</td>
-				  <td>Rp. {{ month_spendings.9|intcomma }}</td>
-				  <td>Rp. {{ month_incomes.9|intcomma }}</td>
+				  <td><a href="/scheduler/budget/month/10{{ year }}">October</a></td>
+				  <td>Rp{{ month_spendings.9|intcomma }}</td>
+				  <td>Rp{{ month_incomes.9|intcomma }}</td>
 				</tr>
 
 				 <tr>
-				  <td>November</td>
-				  <td>Rp. {{ month_spendings.10|intcomma }}</td>
-				  <td>Rp. {{ month_incomes.10|intcomma }}</td>
+				  <td><a href="/scheduler/budget/month/11{{ year }}">November</a></td>
+				  <td>Rp{{ month_spendings.10|intcomma }}</td>
+				  <td>Rp{{ month_incomes.10|intcomma }}</td>
 				</tr>
 
 				<tr>
-				  <td>December</td>
-				  <td>Rp. {{ month_spendings.11|intcomma }}</td>
-				  <td>Rp. {{ month_incomes.11|intcomma }}</td>
+				  <td><a href="/scheduler/budget/month/12{{ year }}">December</a></td>
+				  <td>Rp{{ month_spendings.11|intcomma }}</td>
+				  <td>Rp{{ month_incomes.11|intcomma }}</td>
 				</tr>
 
 				{% endif %}
               </table>
+				{% if mode == "all" or mode == "datepicker" or mode == "weekpicker" %}
 				<div class="pagination">
 					<span class="step-links">
 						{% if budgets.has_previous %}
@@ -334,31 +347,61 @@
 						{% endif %}
 					</span>
 				</div>
+				{% endif %}
 			  
 				<br />
 				<br />
+
 				<div class="row">
 					<div class="col-md-7">
 						<a class="btn btn-primary" href="{% url 'newspending' %}">Insert New Spending Data</a>
 					</div>
 					<div class="col-md-2">
-						<h4 style="text-align: right"> Total Spending </h4>
-					</div>
-					<div class="col-md-2">
-						<h4 style="text-align: right">Rp. {{ total|intcomma }} </h4>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-7">
-
-					</div>
-					<div class="col-md-2">
 						<h4 style="text-align: right"> Total Income </h4>
 					</div>
 					<div class="col-md-2">
-						<h4 style="text-align: right">Rp. {{ income|intcomma }} </h4>
+						<h4 style="text-align: right">Rp{{ income|intcomma }} </h4>
 					</div>
 				</div>
+				
+				<div class="row">
+					<div class="col-md-7">
+						
+					</div>
+					<div class="col-md-2">
+						<h4 style="text-align: right"> Total Spending </h4>
+					</div>
+					<div class="col-md-2">
+						<h4 style="text-align: right">Rp{{ total|intcomma }} </h4>
+					</div>
+				</div>
+				{% if mode == "monthpicker" %}
+				<div class="row">
+					<div class="col-md-7">
+						
+					</div>
+					<div class="col-md-2">
+						<h4 style="text-align: right"> Current Balance </h4>
+					</div>
+					<div class="col-md-2">
+						<h4 style="text-align: right"> Rp{{ monthly_balance|intcomma }} </h4>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-6">
+
+					</div>
+					<div class="col-md-3">
+						<h4 style="text-align: right"> Monthly Saving Target </h4>
+					</div>
+					<div class="col-md-2">
+						<h4 style="text-align: right"> Rp{{ monthly_budget_target|intcomma }} </h4>
+					</div>
+				</div>
+
+				{% endif %}
+
           <!-- /.box -->
         </div>
             </div>

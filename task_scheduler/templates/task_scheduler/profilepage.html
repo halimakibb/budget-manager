@@ -1,0 +1,95 @@
+﻿{% extends 'task_scheduler/layout/top-nav.html' %}
+{% load staticfiles %}
+{% load humanize %}
+{% block content_title %}
+Edit Profile
+{% endblock %}
+
+{% block content %}
+
+	<div class="box" style="width:70%; margin:auto; padding:25px">
+		<form method="POST" class="post-form">{% csrf_token %}
+		<div class="box-body">
+			<div class="form-group">
+				<label>Username:</label>
+				<div class="input-group">
+					<span class="input-group-addon"><i class="fa fa-user"></i></span>
+					<input type="text" class="form-control" value="{{ user.username }}" disabled>
+				</div>
+            </div>
+			
+			<div class="form-group">
+				<label>Password:</label>
+				<div class="input-group">
+					<span class="input-group-addon"><i class="fa fa-user"></i></span>
+					<input type="password" class="form-control" value="{{ user.password }}" disabled>
+				</div>
+				<br />
+				<a href="#" class="btn btn-warning">Change Password</a>
+            </div>
+
+			<div class="form-group">
+                  <label>First Name:</label>
+				  <div class="input-group">
+					  <span class="input-group-addon"><i class="fa fa-user"></i></span>
+					  <input type="text" name="id_first_name" class="form-control" value="{{ user.first_name }}">
+				  </div>
+            </div>
+			
+			<div class="form-group">
+                  <label>Last Name:</label>
+				  <div class="input-group">
+					  <span class="input-group-addon"><i class="fa fa-user"></i></span>
+					  <input type="text" name="id_last_name" class="form-control" value="{{ user.last_name }}">
+				  </div>
+            </div>
+			
+			<div class="form-group">
+                  <label>Email:</label>
+				  <div class="input-group">
+					  <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+					  <input type="text" class="form-control" value="{{ user.email }}" disabled>
+					  
+				  </div>
+				<br />
+				  <a href="#" class="btn btn-warning">Change Email</a>
+            </div>
+			
+			<div class="form-group">
+                  <label>Monthly Budget Target:</label>
+				  <div class="input-group">
+					  <span class="input-group-addon"><i class="fa fa-money"></i></span>
+					  <input type="text" name="id_monthly_budget" class="form-control" value="Rp{{ user.monthly_budget_target|intcomma }} ">
+				  </div>
+            </div>
+			
+			<div class="form-group">
+                  <label>Total Saving:</label>
+				  <div class="input-group">
+					  <span class="input-group-addon"><i class="fa fa-money"></i></span>
+					  <input type="text" class="form-control" value="Rp{{ user.total_saving|intcomma }}" disabled>
+				  </div>
+            </div>
+
+			<div class="form-group">
+                  <label>This Month's Saving:</label>
+				  <div class="input-group">
+					  <span class="input-group-addon"><i class="fa fa-money"></i></span>
+					  <input type="text" class="form-control" value="Rp{{ user.total_saving|intcomma }}" disabled>
+				  </div>
+            </div>
+
+			<div class="form-group">
+                  <label>Last Month's Saving:</label>
+				  <div class="input-group">
+					  <span class="input-group-addon"><i class="fa fa-money"></i></span>
+					  <input type="text" class="form-control" value="Rp{{ user.total_saving|intcomma }}" disabled>
+				  </div>
+            </div>
+			
+			<button type="submit" class="save btn btn-primary">Save Changes</button>
+		</div>
+    </form>
+	</div>
+
+{% endblock %}

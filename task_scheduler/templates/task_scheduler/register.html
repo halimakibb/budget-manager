@@ -1,11 +1,60 @@
 ﻿{% extends 'task_scheduler/layout/top-nav.html' %}
 {% load staticfiles %}
 
+{% load widget_tweaks %}
+
+{% block content_title %}
+Register New User
+{% endblock %}
 {% block content %}
-	<h1>New Spending</h1>
-    <form method="POST" class="post-form">{% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="save btn btn-primary">Save</button>
-    </form>
+	
+    <div class="box" style="width:70%; margin:auto; padding:25px">
+		
+			<div class="box-body">
+				<form method="POST" class="post-form">{% csrf_token %}
+					{{ form.non_field_errors }}
+					<div class="input-group">
+						{{ form.username.errors }}
+						<span class="input-group-addon"><i class="fa fa-user"></i></span>
+						{% render_field form.username class="form-control" placeholder="Username" %}
+					</div>
+					<br />
+					<div class="input-group">
+						{{ form.first_name.errors }}
+						<span class="input-group-addon"><i class="fa fa-user"></i></span>
+						{% render_field form.first_name class="form-control" placeholder="First Name" %}
+					</div>
+					<br />
+					<div class="input-group">
+						{{ form.last_name.errors }}
+						<span class="input-group-addon"><i class="fa fa-user"></i></span>
+						{% render_field form.last_name class="form-control" placeholder="Last Name" %}
+					</div>
+					<br />
+					<div class="input-group">
+						{{ form.last_name.errors }}
+						<span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+						{% render_field form.email class="form-control" placeholder="Email" %}
+					</div>
+					<br />
+					<div class="input-group">
+						{{ form.monthly_budget_target.errors }}
+						<span class="input-group-addon"><i class="fa fa-money"></i></span>
+						{% render_field form.monthly_budget_target class="form-control" placeholder="Monthly Budget Target" %}
+							
+					</div>
+					<br />
+					<div class="input-group">
+						{{ form.total_saving.errors }}
+						<span class="input-group-addon"><i class="fa fa-money"></i></span>
+						{% render_field form.total_saving class="form-control" placeholder="Total Saving" %}
+						
+					</div>
+					<br />
+				
+				<button type="submit" class="save btn btn-primary">Save</button>
+				</form>
+			</div>
+	</div>
 
 {% endblock %}
